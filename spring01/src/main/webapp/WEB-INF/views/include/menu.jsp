@@ -13,7 +13,7 @@ body {
 	background : #EFF8FB;
 	padding: 45px;
 	text-align: center;
-	font-family: 'Oswald', sans-serif;
+	font-family: '빙그레체';
 }
 
 h1 {
@@ -40,6 +40,7 @@ h1 {
 	padding: 20px 20px; #000;
 	color: #1b1b1b;
 }
+
 </style>
 
 </head>
@@ -55,3 +56,4 @@ h1 {
 	<br>
 </body>
 </html>
+

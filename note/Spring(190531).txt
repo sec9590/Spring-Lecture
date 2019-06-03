@@ -93,7 +93,7 @@ Ajax : javascript의 비동기 통신(XMLHttpRequest)을 사용해서 웹 브라우저의 화면이�
 - redirect : response, 응답시 클라이언트에게 요청할 url을 알려주어 다시 요청 → 요청 url 변경
                     = 응답시 클라이언트에게 요청할 url을 알려주어 다시 요청하도록 하는 방식
    ex) response.sendRedirect("join.jsp");
-- dispatcher : request, request의 attribute의 객체를 전달 가능 → 요청 url 변경 x\
+- dispatcher : request, request의 attribute의 객체를 전달 가능 → 요청 url 변경 x
                        = Request(요청)이 살아있는 상태에서 수행을 이동시킨다.
    ex) RequestDispatcher dispatcher = request.getRequestDispatcher("join.jsp");
          dispatcher.forward(request, response);
