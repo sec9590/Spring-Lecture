@@ -4,15 +4,15 @@ import java.util.Date;
 
 public class MemberDTO {
 	private String userid;
-	private String passwd;
+	private String password;
 	private String name;
 	private String email;
 	private Date join_date;
 	
-	public MemberDTO(String userid, String passwd, String name, String email, Date join_date) {
+	public MemberDTO(String userid, String password, String name, String email, Date join_date) {
 		super();
 		this.userid = userid;
-		this.passwd = passwd;
+		this.password = password;
 		this.name = name;
 		this.email = email;
 		this.join_date = join_date;
@@ -30,12 +30,12 @@ public class MemberDTO {
 		this.userid = userid;
 	}
 
-	public String getPasswd() {
-		return passwd;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setPasswd(String passwd) {
-		this.passwd = passwd;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public String getName() {
@@ -64,7 +64,7 @@ public class MemberDTO {
 
 	@Override
 	public String toString() {
-		return "MemberDTO [userid=" + userid + ", passwd=" + passwd + ", name=" + name + ", email=" + email
+		return "MemberDTO [userid=" + userid + ", password=" + password + ", name=" + name + ", email=" + email
 				+ ", join_date=" + join_date + "]";
 	}
 }

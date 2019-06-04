@@ -7,44 +7,73 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-tr, td {
+a{
+	color :black;
+	text-decoration:none;
+}
+a:hover{
+	font-weight:bold;
+	color : #74D36D
+}
+.wp-table tr:nth-child(odd) {
+	background-color: #fff;
+}
+
+.wp-table tr:nth-child(even) {
+	background-color: #f1f1f1;
+}
+
+.wp-table tr {
+	border-bottom: 1px solid #ddd;
+}
+
+.wp-table th:first-child, .wp-table td:first-child {
+	padding-left: 16px;
+}
+.wp-table td, .wp-table th {
+	padding: 8px 8px;
+	display: table-cell;
 	text-align: center;
+	vertical-align: top;
+}
+
+.wp-table th {
+	font-weight: bold;
+}
+
+.wp-table {
+	font-size: 15px !important;
+	border: 1px solid #ccc;
+	border-collapse: collapse;
+	border-spacing: 0;
+	width: 60%;	
+}
+.myButton {
+	background-color:transparent;
+	-moz-border-radius:18px;
+	-webkit-border-radius:18px;
+	border-radius:18px;
+	border:1px solid #18ab29;
+	display:inline-block;
+	cursor:pointer;
+	color:#44c767;
+	font-family:'빙그레체';
+	font-size:15px;
+	font-weight:bold;
+	padding:10px 10px;
+	text-decoration:none;
+}
+.myButton:hover {
+	background-color:#44c767;
 	font-weight : bold;
+	color : white;
+	
+}
+.myButton:active {
+	position:relative;
+	top:1px;
 }
 
-.button {
-	border: 1px solid powderblue;
-	background: white;
-}
-
-.button:hover {
-	background: powderblue;
-	font-weight: bold;
-}
-
-input[type=submit] {
-	width: 5em;
-	height: 2.5em;
-	font-weight: bold;
-	font-size: 10pt;
-	background: powderblue;
-}
-
-.list {
-	text-decoration: none;
-	color: steelblue;
-	font-weight: bold;
-}
-
-a:hover {
-	color: pink;
-}
-
-a {
-	text-decoration: none;
-	font-weight: bold;
-	color: black;
-}
 </style>
 <%@ include file="../include/header.jsp"%>
 </head>
@@ -52,33 +81,27 @@ a {
 	<%@ include file="../include/menu.jsp"%>
 	<hr>
 	<h2>회원 목록</h2>
-	
-	<table border=1 align=center style="border-collapse: collapse;"
-		width=600>
-		<tr height=30 style="background: powderblue">
+
+	<table class="wp-table" align=center>
+		<tr>
 			<th>아이디</th>
 			<th>이름</th>
 			<th>이메일</th>
 			<th>가입일자</th>
-			<th></th>
 		</tr>
-			<c:forEach var="row" items="${list}">
-				<tr>
-					<td>${row.userid}</td>
-					<td><a href="${path}/member/view.do?userid=${userid}">${row.name}</a>
-					</td>
-					<td>${row.email}</td>
-					<td>${row.join_date}</td>
-					<td><input class="button" type="button" value="수정" name="B2"
-						onClick="location.href='MemberProcServlet?action=update&id=${member.id}'" />
-						&nbsp;<input class="button" type="button" value="삭제" name="B2"
-						onClick="location.href='MemberProcServlet?action=delete&id=${member.id}'" />
-					</td>
-				</tr>
-			</c:forEach>
+		<c:forEach var="row" items="${list}">
+			<tr>
+				<td>${row.userid}</td>
+				<td><a href="${path}/member/view.do?userid=${row.userid}">${row.name}</a>
+				</td>
+				<td>${row.email}</td>
+				<td><fmt:formatDate value="${row.join_date}"
+						pattern="yyyy-MM-dd HH:mm" /></td>
+			</tr>
+		</c:forEach>
 	</table>
 	<br>
 	<br>
-	<input type="button" value="회원등록"	onclick="location.href='${path}/member/write.do'">
+		<a href="${path}/member/write.do" class="myButton">회원등록</a>
 </body>
 </html>

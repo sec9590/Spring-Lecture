@@ -14,6 +14,7 @@ public class MemberServiceImpl implements MemberService {
 
 	@Inject
 	MemberDAO memberDao;
+
 	@Override
 	public List<MemberDTO> memberList() {
 		// TODO Auto-generated method stub
@@ -22,32 +23,28 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public void insertMember(MemberDTO vo) {
-		// TODO Auto-generated method stub
-
+		memberDao.insertMember(vo);
 	}
 
 	@Override
-	public MemberDTO viewMeber(String userid) {
-		// TODO Auto-generated method stub
-		return null;
+	public MemberDTO viewMember(String userid) {
+		return memberDao.viewMember(userid);
 	}
 
 	@Override
 	public void deleteMember(String userid) {
-		// TODO Auto-generated method stub
-
+		memberDao.deleteMember(userid);
 	}
 
 	@Override
 	public void updateMember(MemberDTO vo) {
-		// TODO Auto-generated method stub
+		memberDao.updateMember(vo);
 
 	}
 
 	@Override
-	public boolean checkPw(String userid, String passwd) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean checkPw(String userid, String password) {
+		return memberDao.checkPw(userid, password);
 	}
 
 }
