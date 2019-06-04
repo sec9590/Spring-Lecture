@@ -5,6 +5,9 @@
 <configuration>
 
 	<typeAliases>
+	
+		<typeAlias alias="addressDto" type="com.example.spring02.dto.AddressDTO"/>
+	
 	</typeAliases>
 
 </configuration>

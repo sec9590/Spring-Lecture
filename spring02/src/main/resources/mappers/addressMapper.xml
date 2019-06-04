@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
+<mapper namespace="address">
+	<select id="addressList" resultType="addressDto">	
+		select * from myaddress
+	</select>
+	
+	<insert id="insertAddress">
+		insert into myaddress(seq, name, gender, birthday, phone, address) values(SEQ.NEXTVAL, #{name}, #{gender}, #{birthday}, #{phone}, #{address})
+	</insert>
+	
+	<!-- alias처리한것. memberDto ...-> <typeAlias alias="memberDto" type="com.example.spring01.model.dto.MemberDTO"/>  -->
+	<select id="viewAddress" resultType="addressDto">
+		select * from myaddress where name=#{name}
+	</select>	
+	
+	<update id="updateAddress">
+		update myaddress set gender=#{gender}, birthday=#{birthday}, phone=#{phone}, address=#{address} where name=#{name}
+	</update>
+	
+	<delete id="deleteAddress">
+		delete from myaddress where name=#{name}
+	</delete>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

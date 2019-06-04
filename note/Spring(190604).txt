@@ -1,114 +1,26 @@
-19/06/03
+19/06/04
 -------------------------------------------------------------------------------------------------------------------
-현재 스프링 버전 : 5.X
-jdk 8 + spring 5.x
-jdk 6 + spring 4.x
-jdk 5 + spring 3.x
+** 나의 주소록 만들기 **
 
-# 서버가 실행되면서 가장 먼저 읽는 파일
-1. web.xml 파일을 먼저 읽어 들임
-- 웹 프로젝트의 배치기술서
-- 웹 프로젝트의 환경설정에 관한 파일
+#데이터 베이스
 
--------------------------------------------------------------------------------------------------------------------
-* oracle 계정 생성
-1. 관리자 권한으로 접근
-> sqlplus /as sysdba
-2. 작업할 워크 스페이스 작성
-> create tablespace spring datafile "D:\spring\spring.dbf" size 50m autoextend on next 10m maxsize unlimited;
-  // D:\spring 폴더 만들고 최대파일 50m 자동적으로 초과되면 10m씩 늘리기
+칼럼명 : 이름, 연락처, 성별, 생일, 주소
 
-- 사용자 계정만들기
-> create user spring identified by 1234 default tablespace spring;
+- 자동증가 생성
+CREATE SEQUENCE SEQ
+START WITH 1000
+INCREMENT BY 1
+NOMAXVALUE
+NOMINVALUE
 
-- 계정 삭제
-> drop user spring cascade;
-
-- 사용자 권한 부여
-> grant connect, resource, dba to spring;
-
-- 사용자로 접속
-> conn spring/1234;
-
-- 현재 user보기
-> show user;
-
-// forward : 주소 변경 x, 대량의 데이터 전달
-// redirect : 주소가 바뀌고 화면 전환, 소량의 get방식
-
--------------------------------------------------------------------------------------------------------------------
-
-위코드에서 자료가 리턴할 때 xml 형식이나, json 형식으로 리턴된다는 것을 알려주어야 합니다. 
-xml 형식 <> </>
-json 형식 {"name" : "냉장고", "price" : 5000}
-json 형식의 String 형식으로 전달해 주는 라이브러리를 추가해주어야 함
-https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind/2.9.3
-= jackson-databind 2.9.3 버전 라이브러리 pom.xml/dependecies에 추가
-
--------------------------------------------------------------------------------------------------------------------
-
-#로그 
-로깅툴을 사용하는 이유
- sysout : IO 리소스를 많이 사용하여 시스템이 느려짐, 로그를 파일로 저장하여 분석할 필요가 있음
-
-로깅툴의 종류
-- commons-logging : 스프링3에서 주로 사용
-- log4j : 효율적인 메모리 관리
-- logback : log4j보다 성능이 더 우수하며 최근에 많이 사용하고 있음
-- SLF4J : logback을 사용하기 위한 인터페이스
-
-로그를 수집할 클래스 변수 선어너
-- private static final Logger logger = LoggerFactory.getLogger(클래스이름.class)
-- static final : 로그 내용이 바뀌지 않도록 지정
-
-로그의 레벨
-- Debug : Debug, Info, Warn, Error 포함
-- Info : Info, Warn, Error 포함
-- Warn : Warn, Error 포함
-- Error : Error 포함
-
--------------------------------------------------------------------------------------------------------------------
-
-#spring과 mybatis 연동
-
-데이터 메퍼인 mybatis를 사용하는 이유?
-자바코드에 데이터베이스 연결 문자열 등의 중요한 정보가 직접 입력 하는 것은 보안상 안전하지 않음.
-
-Mapper.xml -> sql문 작성
--------------------------------------------------------------------------------------------------------------------
-
-* 회원관리예제
-
-Controller
- - MemberController.java
-Model
- - MemberDAO.java (인터페이스)
- - MemberDAOImpl.java (구현클래스)
- - MemberDTO.java(인터페이스)
- - memberMapper.xml(sql 메퍼)
-View 
- - member_list.jsp
- - write.jsp
- - view.jsp
-Service 
- - memberService.java(인터페이스)
- - memberServiceImpl.java(구현클래스) 
-
-service가 하는 역할은 컨트롤러와 모델사이 존재하며 현업에서 주로 사용하는 방법, 
-즉 서비스는 하나인데, 모델 메서드가 여러개라든지 트랜잭션 처리하려고 할 때 서비스 단 추가
-
-> sqlplus spring/1234
-
-- member 테이블
-create table member(
-userid varchar2(50) not null primary key,
-password varchar2(50) not null,
+create table myaddress(
+SEQ NUMBER not null primary key, 
 name varchar2(50) not null,
-email varchar2(50),
-join_date date default sysdate
+gender varchar2(50) not null,
+birthday varchar2(50) not null,
+phone varchar2(80) not null,
+address varchar2(80) not null
 );
 
-insert into member (userid, password, name, email) values('kim' , '1234', '김철수', 'kim@gmail.com');
-
-commit;
- 
+insert into myaddress(seq, name, gender, birthday, phone, address) 
+values(SEQ.NEXTVAL, '김자바', '남자', '92/05/10', '010-1234-5678', '대전 유성구 도안동');
