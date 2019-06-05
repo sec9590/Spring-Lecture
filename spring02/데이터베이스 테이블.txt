@@ -1,0 +1,23 @@
+데이터베이스 테이블
+-------------------------------------------------------------------------------------------------------------------
+칼럼명 : 이름, 연락처, 성별, 생일, 주소
+
+- 자동증가 생성
+CREATE SEQUENCE SEQ
+START WITH 1000
+INCREMENT BY 1
+NOMAXVALUE
+NOMINVALUE
+
+create table myaddress(
+SEQ NUMBER not null primary key, 
+name varchar2(50) not null,
+gender varchar2(50) not null,
+birthday varchar2(50) not null,
+phone varchar2(80) not null,
+address varchar2(80) not null
+);
+
+insert into myaddress(seq, name, gender, birthday, phone, address) 
+values(SEQ.NEXTVAL, '김자바', '남자', '92/05/10', '010-1234-5678', '대전 유성구 도안동');
+

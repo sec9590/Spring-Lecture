@@ -52,7 +52,7 @@ h : hibernate
 HTML(정적) -> CHI(ASP) -> 서블릿, JSP -> EJB -> 스프링
 
 현재에는 Ajax로 웹 브라우저에 풍부한 화면 구현
-Ajax : javascript의 비동기 통신(XMLHttpRequest)을 사용해서 웹 브라우저의 화면이도없이 화면 일부를 변경하는 기술
+Ajax : javascript의 비동기 통신(XMLHttpRequest)을 사용해서 웹 브라우저의 화면이동없이 화면 일부를 변경하는 기술
            화면의 편리성 향상
            ex) google map의 화면이동이나 지도상에서 상점정보 표시
 동기적 : 어떤 작업을 요청했을 때 그 작업이 종료될 때까지 기다린 후 다음(다른) 작업을 수행하는 방식
