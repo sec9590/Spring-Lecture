@@ -60,4 +60,16 @@ public class MemberDAOImpl implements MemberDAO {
 		return result;
 	}
 
+	@Override
+	public boolean login(String userid, String password) {
+		boolean result = false;
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("userid", userid);
+		map.put("password", password);
+		int count = sqlSession.selectOne("member.checkPw", map);
+		if(count == 1)
+			result = true;
+		return result;
+	}
+
 }

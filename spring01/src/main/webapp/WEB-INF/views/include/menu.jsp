@@ -58,7 +58,7 @@ nav ul li a {
 			<li><a class="btn" href="${path}/">Home</a></li>
 			<li><a class="btn" href="${path}/gugu.do?dan=3">Gugu</a></li>
 			<li><a class="btn" href="${path}/test.do">Test</a></li>
-			<li><a class="btn" href="${path}/member/list.do">Member</a></li>
+			<li><a class="btn" href="${path}/member/loginmain.do">Member</a></li>
 		</ul>
 	</nav>
 </body>

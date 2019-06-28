@@ -3,6 +3,7 @@ package com.example.spring01.controller;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,6 +22,34 @@ public class MemberController {
 	
 	@Inject
 	MemberService memberService;
+	
+	@RequestMapping("/member/loginmain.do")
+	public String loginmain(HttpSession session) {
+		if(session.getAttribute("name")!=null)
+			return "redirect:/member/list.do";
+		else
+			return "member/login";
+	}
+	
+	@RequestMapping("/member/login.do")
+	public String login(@ModelAttribute MemberDTO dto, Model model, HttpSession session) {
+		boolean result = memberService.login(dto.getUserid(), dto.getPassword());
+		if(result) {
+			session.setAttribute("name", dto.getUserid());
+			return "redirect:/member/list.do";
+		} else {
+			model.addAttribute("message", "로그인정보가 존재하지 않습니다.");
+			return "member/login";
+		}
+	}
+	
+	@RequestMapping("/member/logout.do")
+	public String logout(Model model, HttpSession session) {
+		session.invalidate();
+		model.addAttribute("message", "로그아웃되었습니다.");
+		return "member/login";
+	}
+	
 	
 	@RequestMapping("/member/list.do")
 	public String memberList(Model model) {

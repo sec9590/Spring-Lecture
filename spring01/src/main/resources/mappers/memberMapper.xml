@@ -31,6 +31,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		delete from member where userid=#{userid}
 	</delete>
 	
+	 <select id = "login" resultType="int">
+        select count(*) from member m where m.userid = #{userid} and m.password = #{password}
+    </select>
 </mapper>
 
 

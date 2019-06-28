@@ -47,4 +47,9 @@ public class MemberServiceImpl implements MemberService {
 		return memberDao.checkPw(userid, password);
 	}
 
+	@Override
+	public boolean login(String userid, String password) {
+		return memberDao.login(userid, password);
+	}
+
 }

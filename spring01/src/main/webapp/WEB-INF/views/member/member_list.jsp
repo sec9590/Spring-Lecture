@@ -13,7 +13,7 @@ a{
 }
 a:hover{
 	font-weight:bold;
-	color : #74D36D
+	color : black;
 }
 .wp-table tr:nth-child(odd) {
 	background-color: #fff;
@@ -81,6 +81,7 @@ a:hover{
 	<%@ include file="../include/menu.jsp"%>
 	<hr>
 	<h2>회원 목록</h2>
+	<p><b>${name}</b> 님 안녕하세요.</p>
 
 	<table class="wp-table" align=center>
 		<tr>
@@ -102,6 +103,6 @@ a:hover{
 	</table>
 	<br>
 	<br>
-		<a href="${path}/member/write.do" class="myButton">회원등록</a>
+	 <a href="${path}/member/logout.do" class="myButton">로그아웃</a>
 </body>
 </html>
