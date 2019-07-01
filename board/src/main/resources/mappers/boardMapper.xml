@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
+<mapper namespace="board">
+<select id="listall" resultType="com.example.board.model.BoardVO">
+	select * from board order by bno desc, regdate desc
+</select>
+
+<select id="detail" resultType="com.example.board.model.BoardVO">
+	select * from board where bno=#{bno}
+</select>
+
+<insert id="insert">
+	insert into board(bno, title, content, wrtier) values ((SELECT NVL(MAX(bno)+1, 1) from board), #{title}, #{content}, #{writer})
+</insert>
+
+<update id="update">
+	update board set title = #{title}, content = #{content}, writer = #{writer} where bno=#{bno}
+</update>
+
+<update id="increaseViewcnt">
+	update board set viewcnt = viewcnt+1 where bno=#{bno}
+</update>
+
+<delete id="delete">
+	delete from board where bno=#{bno}
+</delete>
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

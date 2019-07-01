@@ -66,6 +66,9 @@
 		<item value="org.springframework.ide.eclipse.webflow.feature:3.9.8.201903260659-RELEASE"/>
 		<item value="org.springframework.ide.eclipse.xml.namespaces.feature:3.9.9.201905211834-CI-B2250"/>
 	</list>
+	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+		<item value="C:\Users\714-\Downloads\Spring-Lecture-master\Spring-Lecture-master\product"/>
+	</list>
 	<section name="ExternalProjectImportWizard">
 		<item key="WizardProjectsImportPage.STORE_NESTED_PROJECTS" value="false"/>
 		<item key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID" value="false"/>

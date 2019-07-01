@@ -7,14 +7,16 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-a{
-	color :black;
-	text-decoration:none;
+a {
+	color: black;
+	text-decoration: none;
 }
-a:hover{
-	font-weight:bold;
-	color : black;
+
+a:hover {
+	font-weight: bold;
+	color: #74D36D
 }
+
 .wp-table tr:nth-child(odd) {
 	background-color: #fff;
 }
@@ -30,6 +32,7 @@ a:hover{
 .wp-table th:first-child, .wp-table td:first-child {
 	padding-left: 16px;
 }
+
 .wp-table td, .wp-table th {
 	padding: 8px 8px;
 	display: table-cell;
@@ -46,34 +49,35 @@ a:hover{
 	border: 1px solid #ccc;
 	border-collapse: collapse;
 	border-spacing: 0;
-	width: 60%;	
-}
-.myButton {
-	background-color:transparent;
-	-moz-border-radius:18px;
-	-webkit-border-radius:18px;
-	border-radius:18px;
-	border:2px solid #ddd;
-	display:inline-block;
-	cursor:pointer;
-	color:black;
-	font-family:'빙그레체';
-	font-size:15px;
-	font-weight:bold;
-	padding:10px 10px;
-	text-decoration:none;
-}
-.myButton:hover {
-	background-color:#ddd;
-	font-weight : bold;
-	color : #white;
-	
-}
-.myButton:active {
-	position:relative;
-	top:1px;
+	width: 60%;
 }
 
+.myButton {
+	background-color: transparent;
+	-moz-border-radius: 18px;
+	-webkit-border-radius: 18px;
+	border-radius: 18px;
+	border: 2px solid #ddd;
+	display: inline-block;
+	cursor: pointer;
+	color: black;
+	font-family: '빙그레체';
+	font-size: 15px;
+	font-weight: bold;
+	padding: 10px 10px;
+	text-decoration: none;
+}
+
+.myButton:hover {
+	background-color: #ddd;
+	font-weight: bold;
+	color: #white;
+}
+
+.myButton:active {
+	position: relative;
+	top: 1px;
+}
 </style>
 <%@ include file="../include/header.jsp"%>
 </head>
@@ -81,7 +85,9 @@ a:hover{
 	<%@ include file="../include/menu.jsp"%>
 	<hr>
 	<h2>회원 목록</h2>
-	<p><b>${name}</b> 님 안녕하세요.</p>
+	<p>
+		<b>${name}</b> 님 안녕하세요.
+	</p>
 
 	<table class="wp-table" align=center>
 		<tr>
@@ -103,6 +109,6 @@ a:hover{
 	</table>
 	<br>
 	<br>
-	 <a href="${path}/member/logout.do" class="myButton">로그아웃</a>
+	<a href="${path}/member/write.do" class="myButton">회원등록</a>
 </body>
 </html>

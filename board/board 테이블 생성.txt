@@ -1,0 +1,12 @@
+create table board(
+bno number not null,
+title varchar2(200) not null,
+content varchar2(4000),
+writer varchar2(50) not null,
+regdate date default sysdate,
+viewcnt number default 0,
+primary key(bno)
+);
+
+insert into board(bno, title, content, writer) 
+values ((SELECT NVL(MAX(bno)+1, 1) from board), '강의', '자바기반 전자정부프레임워크', '김이젠')
