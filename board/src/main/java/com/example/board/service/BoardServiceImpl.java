@@ -3,6 +3,7 @@ package com.example.board.service;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Service;
 
@@ -21,9 +22,9 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public BoardVO detail(BoardVO vo) {
+	public BoardVO detail(int bno) {
 		// TODO Auto-generated method stub
-		return bDao.detail(vo);
+		return bDao.detail(bno);
 	}
 
 	@Override
@@ -45,9 +46,18 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public void increaseViewcnt(int bno) {
-		// TODO Auto-generated method stub
-		bDao.increaseViewcnt(bno);
+	public void increaseViewcnt(int bno, HttpSession session) {
+		long update_time = 0;
+		if(session.getAttribute("update_time_"+ bno) != null)
+			update_time = (long) session.getAttribute("update_time_" + bno);
+		
+		long current_time = System.currentTimeMillis();
+		
+		if(current_time - update_time > 5*1000) {
+			bDao.increaseViewcnt(bno);
+			session.setAttribute("update_time_"+bno, current_time);
+		}
+		
 	}
 
 }

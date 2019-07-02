@@ -3,6 +3,7 @@ package com.example.board.model;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
@@ -21,9 +22,9 @@ public class BoardDAOImpl implements BoardDAO {
 	}
 
 	@Override
-	public BoardVO detail(BoardVO vo) {
+	public BoardVO detail(int bno) {
 		// TODO Auto-generated method stub
-		return sqlsession.selectOne("board.detail", vo);
+		return sqlsession.selectOne("board.detail", bno);
 	}
 
 	@Override
@@ -45,8 +46,7 @@ public class BoardDAOImpl implements BoardDAO {
 	}
 
 	@Override
-	public void increaseViewcnt(int bno) {
-		// TODO Auto-generated method stub
+	public void increaseViewcnt(int bno){
 		sqlsession.update("board.increaseViewcnt", bno);
 	}
 

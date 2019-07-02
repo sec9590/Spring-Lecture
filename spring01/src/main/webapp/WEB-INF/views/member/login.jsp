@@ -6,56 +6,98 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width" , initial-scale="1.0">
 <title>회원등록</title>
-<link rel="stylesheet" href="css/bootstrap.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <%@ include file="../include/header.jsp"%>
 <style>
 .myButton {
-	background-color:transparent;
-	-moz-border-radius:18px;
-	-webkit-border-radius:18px;
-	border-radius:18px;
-	border:2px solid #ddd;
-	display:inline-block;
-	cursor:pointer;
-	color:black;
-	font-family:'빙그레체';
-	font-size:15px;
-	font-weight:bold;
-	padding:7px 10px;
-	text-decoration:none;
+	background-color: transparent;
+	-moz-border-radius: 18px;
+	-webkit-border-radius: 18px;
+	border-radius: 18px;
+	border: 2px solid #ddd;
+	display: inline-block;
+	cursor: pointer;
+	color: black;
+	font-family: '빙그레체';
+	font-size: 15px;
+	font-weight: bold;
+	padding: 7px 10px;	
+	text-decoration: none;
 }
+
 .myButton:hover {
-	background-color:#ddd;
-	font-weight : bold;
-	color : #white;
-	
+	background-color: #ddd;
+	font-weight: bold;
+	color: #white;
 }
+
 .myButton:active {
-	position:relative;
-	top:1px;
+	position: relative;
+	top: 1px;
 }
-h2{
-font-family:"빙그레체";
-font-weight:bold;
+
+h2 {
+	font-family: "빙그레체";
+	font-weight: bold;
 }
-a{
-	color :black;
-	text-decoration:none;
+
+/* Labels are titles for the text fields. You can use a placeholder instead if you like*/
+label {
+	display: block;
+	margin-top: 20px;
+	letter-spacing: 2px;
 }
-a:hover{
-	font-weight:bold;
-	color : black;
-	text-decoration:none;
+
+/* Styles the text boxes */
+input, textarea, file {
+	width : 250px;
+	height: 27px;
+	background-color: #efefef;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border: 1px solid #dedede;
+	padding: 10px;
+	margin-top: 5px;
+	font-size: 0.9em;
+	color: #3a3a3a;
 }
+
+input:focus, textarea:focus {
+	border: 1px solid #97d6eb;
+}
+/* Styles the text area boxes (message field) */
+textarea {
+	height: 213px;
+	background-color: #efefef;
+}
+
+/* Styles the submit button */
+#submit {
+	/* background:url(images/submit.png); */
+	width: 80px;
+	height: 40px;
+	text-align: center;
+	/* text-indent:-9999px; */
+	border: none;
+	margin-top: 20px;
+	cursor: pointer;
+}
+
+/* Styles the submit hover */
+#submit:hover {
+	color: #fff;
+	background-color: #74D36D;
+	opacity: 0.9;
+}
+
 </style>
 <script>
-    $(function(){
-        var responseMessage = "<c:out value="${message}" />";
-        if(responseMessage != ""){
-            alert(responseMessage)
-        }
-    }) 
+	$(function() {
+		var responseMessage = "<c:out value="${message}" />";
+		if (responseMessage != "") {
+			alert(responseMessage)
+		}
+	})
 </script>
 </head>
 <body>
@@ -63,17 +105,18 @@ a:hover{
 	<hr>
 	<h2>로그인</h2>
 	<br>
-			<div style="width:300px; margin:auto">
-				<form name="form1" method="post" action="${path }/member/login.do">
-					<div class="form-group">
-						<input type="text" class="form-control" placeholder="아이디" name="userid" >
-					</div>
-					<div class="form-group">
-						<input type="password" class="form-control" placeholder="비밀번호" name="password" >
-					</div>
-					<br>
-					<input type="submit" class="myButton" value="로그인">&nbsp;&nbsp; <a href="${path}/member/write.do" class="myButton">회원등록</a>
-				</form>
+	<center>
+		<form name="form1" method="post" action="${path }/member/login.do">
+			<div>
+				<input type="text" placeholder="아이디" name="userid">
 			</div>
+			<div>
+				<input type="password" placeholder="비밀번호" name="password">
+			</div>
+			<br> 
+			<input id="submit" name="submit" type="submit" value="로그인">
+			<input id="submit" type="button" value="회원등록" onClick = "location.href='${path}/member/write.do'"/> 			
+		</form>
+	</center>
 </body>
 </html>

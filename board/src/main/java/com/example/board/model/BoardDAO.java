@@ -2,9 +2,11 @@ package com.example.board.model;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 public interface BoardDAO {
 	public void insert(BoardVO vo);
-	public BoardVO detail(BoardVO vo);
+	public BoardVO detail(int bno);
 	public void update(BoardVO vo);
 	public void delete(int bno);
 	public List<BoardVO> listAll();

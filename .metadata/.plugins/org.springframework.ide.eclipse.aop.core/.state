@@ -4,4 +4,6 @@
 <aop-project name="spring02"/>
 <aop-project name="spring01"/>
 <aop-project name="product"/>
+<aop-project name="board"/>
+<aop-project name="ezentour"/>
 </aop-reference-model>

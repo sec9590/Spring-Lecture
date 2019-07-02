@@ -13,15 +13,15 @@
 </select>
 
 <insert id="insert">
-	insert into board(bno, title, content, wrtier) values ((SELECT NVL(MAX(bno)+1, 1) from board), #{title}, #{content}, #{writer})
+	insert into board(bno, title, content, writer) values ((SELECT NVL(MAX(bno)+1, 1) from board), #{title}, #{content}, #{writer})
 </insert>
 
 <update id="update">
-	update board set title = #{title}, content = #{content}, writer = #{writer} where bno=#{bno}
+	update board set title=#{title}, content=#{content}, writer=#{writer}, regdate=sysdate where bno=#{bno}
 </update>
 
 <update id="increaseViewcnt">
-	update board set viewcnt = viewcnt+1 where bno=#{bno}
+	update board set viewcnt=viewcnt+1 where bno=#{bno}
 </update>
 
 <delete id="delete">

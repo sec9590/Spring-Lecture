@@ -2,4 +2,6 @@
 <typeInfoHistroy>
 <typeInfo handle="=spring02/src\/main\/java&lt;com.example.spring02.dao{AddressDAO.java[AddressDAO" modifiers="513" timestamp="1559628012618"/>
 <typeInfo handle="=spring02/src\/main\/java&lt;com.example.spring02.service{AddressService.java[AddressService" modifiers="513" timestamp="1559627996172"/>
+<typeInfo handle="=board/src\/main\/java&lt;com.example.board.model{BoardDAO.java[BoardDAO" modifiers="513" timestamp="1562051342261"/>
+<typeInfo handle="=board/src\/main\/java&lt;com.example.board.service{BoardService.java[BoardService" modifiers="513" timestamp="1562050344102"/>
 </typeInfoHistroy>
