@@ -67,6 +67,8 @@
 		<item value="org.springframework.ide.eclipse.xml.namespaces.feature:3.9.9.201905211834-CI-B2250"/>
 	</list>
 	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+		<item value="D:\tour\ezentour"/>
+		<item value="D:\spring-ezentour\ezentour"/>
 		<item value="C:\Users\714-\Downloads\Spring-Lecture-master\Spring-Lecture-master\product"/>
 	</list>
 	<section name="ExternalProjectImportWizard">

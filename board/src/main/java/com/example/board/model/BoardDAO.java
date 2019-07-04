@@ -11,5 +11,7 @@ public interface BoardDAO {
 	public void delete(int bno);
 	public List<BoardVO> listAll();
 	public void increaseViewcnt(int bno);
+	public List<BoardVO> listAll(String searchOption, String keyword);
+	public int countArticle(String searchOption, String keyword);
 	
 }

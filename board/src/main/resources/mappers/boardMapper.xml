@@ -5,7 +5,9 @@
 <!-- 다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
 <mapper namespace="board">
 <select id="listall" resultType="com.example.board.model.BoardVO">
-	select * from board order by bno desc, regdate desc
+	select * from board order 
+	<include refid="search"></include>
+	 by bno desc, regdate desc
 </select>
 
 <select id="detail" resultType="com.example.board.model.BoardVO">
@@ -27,6 +29,19 @@
 <delete id="delete">
 	delete from board where bno=#{bno}
 </delete>
+
+<sql id="search">
+	<choose>
+		<when test="searchOption == 'all'">
+			where writer like '%'||#{keyword}||'%'
+			or content like '%'||#{keyword}||'%'
+			or title like '%'||#{keyword}||'%'
+		</when>
+		<otherwise>
+			where ${searchOption} like '%'||#{keyword}||'%'
+		</otherwise>
+	</choose>
+</sql>
 
 </mapper>
 

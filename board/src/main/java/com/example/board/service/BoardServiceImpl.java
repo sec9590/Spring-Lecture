@@ -60,4 +60,14 @@ public class BoardServiceImpl implements BoardService {
 		
 	}
 
+	@Override
+	public List<BoardVO> listAll(String searchOption, String keyword) {
+		return bDao.listAll(searchOption, keyword);
+	}
+
+	@Override
+	public int countArticle(String searchOption, String keyword) {
+		return bDao.countArticle(searchOption, keyword);
+	}
+
 }

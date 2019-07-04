@@ -1,9 +1,10 @@
 package com.example.board.model;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
-import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
@@ -48,6 +49,22 @@ public class BoardDAOImpl implements BoardDAO {
 	@Override
 	public void increaseViewcnt(int bno){
 		sqlsession.update("board.increaseViewcnt", bno);
+	}
+
+	@Override
+	public List<BoardVO> listAll(String searchOption, String keyword) {
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("searchOption", searchOption);
+		map.put("keyword", keyword);
+		return sqlsession.selectList("board.listall", map);
+	}
+
+	@Override
+	public int countArticle(String searchOption, String keyword) {
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("searchOption", searchOption);
+		map.put("keyword", keyword);
+		return sqlsession.selectOne("board.countArticle", map);
 	}
 
 }
