@@ -20,6 +20,10 @@ $(function() {
 			document.form1.submit();
 		}
 	});
+	$("#btnList").click(function() {
+			document.form1.action = "${path }/list.do";
+			document.form1.submit();		
+	});
 });
 </script>
 <style>
@@ -124,13 +128,18 @@ textarea {
 				<input type="text"  name="title" value=${vo.title }>
 			</div>
 			<div>
-				<input type="text" name="writer" value=${vo.writer }>
+				<input type="text" name="writer" value=${vo.writer } readonly="readonly">
 			</div>		
 			<div>
 				<textarea name="content" cols="40" rows="8" >${vo.content }</textarea>
 			</div>
+			<c:if test="${sessionScope.name  == vo.writer }">
 			<input type="button" value="수정" class="submit" id="btnUpdate">&nbsp;&nbsp;
 		    <input type="button" class="submit" value="삭제" id="btnDelete">
+		    </c:if>
+		    <c:if test="${sessionScope.name  != vo.writer || sessionScope.name == null}">			
+		    <input type="button" class="submit" value="목록" id="btnList">
+		    </c:if>
 		</form>
 	</div>
 	</center>

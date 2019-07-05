@@ -23,7 +23,7 @@ nav ul {
 	font-family: '빙그레체';
 	font-weight : bold;
 	margin-top: 10px;
-	padding: 0 30px;
+	padding: 0 20px;
 	list-style: none;
 	position: relative;
 	display: inline-table;
@@ -44,7 +44,7 @@ nav ul li a:hover {
 
 nav ul li a {
 	display: block;
-	padding: 20px 20px;
+	padding: 10px 10px;
 	color: #000;
 	text-decoration: none;
 }
@@ -54,8 +54,18 @@ nav ul li a {
 <body>
 	<nav>
 		<ul>
-			<li><a class="btn" href="${path }/list.do">게시판</a></li>		
-		</ul>
+			<li><a class="btn" href="${path }/list.do">게시판</a></li>	
+		<c:choose>
+			<c:when test = "${sessionScope.userid == null}">
+						<li><a class="btn" href="${path }/member/login.do">로그인</a></li>
+						</ul>
+			</c:when>
+			<c:otherwise>
+			<li><a class="btn" href="${path }/member/logout.do">로그아웃</a></li>
+						</ul>
+			<p align="right"><b>${sessionScope.userid }</b> 님이 로그인 중입니다.</p>		
+			</c:otherwise>
+		</c:choose>		
 	</nav>
 </body>
 </html>

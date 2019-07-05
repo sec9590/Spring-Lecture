@@ -103,7 +103,7 @@ textarea {
 					<input type="text" placeholder="제목" name="title">
 				</div>
 				<div>
-					<input type="text" placeholder="작성자" name="writer" >
+					<input type="text" placeholder="작성자" name="writer" value = "${name }" readonly="readonly">
 				</div>
 				<div>
 					<textarea name="content" cols="40" rows="8" placeholder="내용"></textarea>

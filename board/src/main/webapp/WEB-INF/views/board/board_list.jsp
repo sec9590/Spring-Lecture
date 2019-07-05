@@ -92,7 +92,7 @@ a:hover {
 }
 
 select {
-	width: 200px;
+	width: 150px;
 	padding: .8em .5em;
 	font-family: inherit;
 	background:
@@ -119,15 +119,13 @@ label {
 
 /* Styles the text boxes */
 input, textarea, file {
-	width: 400px;
-	height: 27px;
+	width: 200px;
+	height: 36px;
 	background-color: #efefef;
 	border-radius: 5px;
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
-	border: 1px solid #dedede;
-	padding: 10px;
-	margin-top: 5px;
+	border: 1px solid #dedede;	
 	font-size: 0.9em;
 	color: #3a3a3a;
 }
@@ -144,7 +142,7 @@ textarea {
 /* Styles the submit button */
 #submit {
 	/* background:url(images/submit.png); */
-	width: 80px;
+	width: 50px;
 	height: 40px;
 	text-align: center;
 	/* text-indent:-9999px; */
@@ -168,7 +166,7 @@ textarea {
 		<hr>
 		<br>
 		<div>
-			<form name="form1" method="post" action="${path }/insert.do">
+			<form name="form1" method="post" action="${path }/list.do">
 				<select name="searchOption">
 					<option value="all" <c:out value="${map.searchOption =='all'? 'selected':'' }"/>>제목+이름+내용</option>
 					<option value="wrtier" <c:out value="${map.searchOption =='writer'? 'selected':'' }"/>>이름</option>
@@ -180,7 +178,9 @@ textarea {
 				<input id="submit" name="cancel" type="reset" value="취소" />
 			</form>
 		</div>
-		${map.count }개의 게시물이 있습니다.
+		<br>
+		<b>${map.count }</b>개의 게시물이 있습니다.
+		<br><br>
 		<table class="type09">
 			<thead>
 				<tr>
@@ -192,7 +192,7 @@ textarea {
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="row" items="${list}">
+				<c:forEach var="row" items="${map.list}">
 					<tr>
 						<th>${row.bno}</th>
 						<td><a href="${path}/detail.do?bno=${row.bno}">${row.title }</a></td>
@@ -205,7 +205,9 @@ textarea {
 		</table>
 		<br>
 		<br>
-		<button type="button" class="myButton" id="btnAdd">게시물등록</button>
+		<c:if test="${sessionScope.userid !=null }">
+			<button type="button" class="myButton" id="btnAdd">게시물등록</button>
+		</c:if>			
 	</center>
 </body>
 </html>

@@ -1,11 +1,16 @@
 package com.example.board.controller;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -14,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.example.board.model.BoardVO;
 import com.example.board.service.BoardService;
+import com.example.board.service.MemberService;
 
 
 
@@ -29,16 +35,26 @@ public class BoardController {
 	public String main() {
 		return "include/filemenu";
 	}
-	@RequestMapping(value = "list.do", method = RequestMethod.GET)
-	public ModelAndView list(ModelAndView mav) {
+	@RequestMapping(value = "list.do")
+	public ModelAndView list(@RequestParam(defaultValue="title") String searchOption, @RequestParam(defaultValue="") String keyword) {
 		logger.info("boardList 시작");
+		List<BoardVO> list = boardService.listAll(searchOption, keyword);
+		int count = boardService.countArticle(searchOption, keyword);
+		
+		ModelAndView mav = new ModelAndView();
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("list", list);
+		map.put("count", count);
+		map.put("searchOption", searchOption);
+		map.put("keyword", keyword);
 		mav.setViewName("/board/board_list");
-		mav.addObject("list", boardService.listAll());
+		mav.addObject("map", map);
 		return mav;
 	}
 	
 	@RequestMapping(value = "write.do", method = RequestMethod.GET)
-	public String write() {
+	public String write(Model model, HttpSession session) {
+		model.addAttribute("name", session.getAttribute("name"));				
 		return "board/write";
 	}
 	
@@ -49,7 +65,7 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value = "detail.do", method = RequestMethod.GET)
-	public ModelAndView detail(HttpSession session, @RequestParam int bno) {
+	public ModelAndView detail(Model model, HttpSession session, @RequestParam int bno) {	
 		boardService.increaseViewcnt(bno, session);
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("/board/detail");
@@ -67,5 +83,6 @@ public class BoardController {
 	public String delete(@RequestParam int bno) {
 		boardService.delete(bno);
 		return "redirect:list.do";
-	}
+	}	
+
 }

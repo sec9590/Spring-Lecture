@@ -5,6 +5,9 @@
 <configuration>
 
 	<typeAliases>
+	
+		<typeAlias alias="memberVO" type="com.example.board.model.MemberVO"/>
+	
 	</typeAliases>
 
 </configuration>

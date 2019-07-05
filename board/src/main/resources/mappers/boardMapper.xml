@@ -5,9 +5,14 @@
 <!-- 다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
 <mapper namespace="board">
 <select id="listall" resultType="com.example.board.model.BoardVO">
-	select * from board order 
+	select * from board
 	<include refid="search"></include>
-	 by bno desc, regdate desc
+	 order by bno desc, regdate desc
+</select>
+
+<select id="countArticle" resultType="int">
+	select count(*) from board
+	<include refid="search"></include>
 </select>
 
 <select id="detail" resultType="com.example.board.model.BoardVO">
@@ -42,7 +47,6 @@
 		</otherwise>
 	</choose>
 </sql>
-
 </mapper>
 
 

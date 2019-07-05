@@ -17,8 +17,6 @@
 <fullyQualifiedTypeName name="com.example.spring01.service.MemberService"/>
 <fullyQualifiedTypeName name="org.springframework.ui.Model"/>
 <fullyQualifiedTypeName name="com.example.spring01.model.dto.ProductDTO"/>
-<fullyQualifiedTypeName name="java.util.HashMap"/>
-<fullyQualifiedTypeName name="java.util.Map"/>
 <fullyQualifiedTypeName name="org.slf4j.Logger"/>
 <fullyQualifiedTypeName name="com.example.spring02.dao.AddressDAO"/>
 <fullyQualifiedTypeName name="com.example.spring02.service.AddressService"/>
@@ -37,7 +35,6 @@
 <fullyQualifiedTypeName name="com.product.spring.model.shop.dao.ProductDAO"/>
 <fullyQualifiedTypeName name="com.product.spring.model.shop.service.ProductService"/>
 <fullyQualifiedTypeName name="java.util.Date"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
 <fullyQualifiedTypeName name="org.apache.ibatis.session.SqlSession"/>
 <fullyQualifiedTypeName name="javax.inject.Inject"/>
@@ -45,9 +42,16 @@
 <fullyQualifiedTypeName name="com.example.board.model.BoardDAO"/>
 <fullyQualifiedTypeName name="com.example.board.service.BoardService"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ModelAttribute"/>
-<fullyQualifiedTypeName name="com.example.board.model.BoardVO"/>
-<fullyQualifiedTypeName name="org.springframework.web.servlet.ModelAndView"/>
-<fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
 <fullyQualifiedTypeName name="java.lang.Exception"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
+<fullyQualifiedTypeName name="com.example.board.model.BoardVO"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="org.springframework.web.servlet.ModelAndView"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="com.example.board.model.MemberDTO"/>
+<fullyQualifiedTypeName name="com.example.board.model.MemberDAO"/>
+<fullyQualifiedTypeName name="com.example.board.model.MemberVO"/>
+<fullyQualifiedTypeName name="com.example.board.service.MemberService"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
 </qualifiedTypeNameHistroy>
