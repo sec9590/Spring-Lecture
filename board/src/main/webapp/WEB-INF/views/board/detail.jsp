@@ -8,7 +8,25 @@
 <title>게시물등록</title>
 <%@ include file="../include/header.jsp"%>
 <script>
-$(function() {
+$(document).ready(function() {
+	
+	listReply();
+	
+	$("#btnReply").click(function() {
+		var replytext = $("#replytext").val();
+		var bno = "${vo.bno}";
+		var param="replytext=" + replytext + "&bno=" + bno;
+		$.ajax({
+			type:"post",
+			url:"${path}/reply/insert.do",
+			data : param,
+			success: function(){
+				alert("댓글이 등록되었습니다. ");
+				listReply();
+			}
+		});		
+	});
+	
 	$("#btnUpdate").click(function() {
 		document.form1.action = "${path }/update.do";
 		document.form1.submit();
@@ -21,10 +39,20 @@ $(function() {
 		}
 	});
 	$("#btnList").click(function() {
-			document.form1.action = "${path }/list.do";
-			document.form1.submit();		
+			document.form1.action = "${path}/list.do?curPage=${curPage}&searchOption=${searchOption}&keyword=${keyword}"
 	});
 });
+
+function listReply(){
+	$.ajax({
+		type:"get",
+		url:"${path}/reply/list.do?bno=${vo.bno}",
+		success : function(result){
+			$("#listReply").html(result);
+		}
+	});
+}
+
 </script>
 <style>
 .myButton {
@@ -142,6 +170,15 @@ textarea {
 		    </c:if>
 		</form>
 	</div>
+	<div>
+	<br>
+	  <c:if test="${sessionScope.name != null}">			
+		   <textarea name="replytext" id="replytext" cols="40" rows="2" placeholder="댓글을 작성해주세요"></textarea>
+		   <br>
+		   <input type="button" class="submit" value="댓글작성" id="btnReply"> 
+	  </c:if>
+	</div>
+	<div id="listReply"></div>
 	</center>
 </body>
 </html>

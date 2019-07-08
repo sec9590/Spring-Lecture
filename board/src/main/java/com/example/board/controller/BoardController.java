@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.board.model.BoardVO;
+import com.example.board.service.BoardPager;
 import com.example.board.service.BoardService;
 import com.example.board.service.MemberService;
 
@@ -36,17 +37,25 @@ public class BoardController {
 		return "include/filemenu";
 	}
 	@RequestMapping(value = "list.do")
-	public ModelAndView list(@RequestParam(defaultValue="title") String searchOption, @RequestParam(defaultValue="") String keyword) {
+	public ModelAndView list(@RequestParam(defaultValue="title") String searchOption, @RequestParam(defaultValue="") String keyword, @RequestParam(defaultValue = "1") int curPage) {
 		logger.info("boardList 시작");
-		List<BoardVO> list = boardService.listAll(searchOption, keyword);
-		int count = boardService.countArticle(searchOption, keyword);
 		
-		ModelAndView mav = new ModelAndView();
+		int count = boardService.countArticle(searchOption, keyword);
+		BoardPager boardPager = new BoardPager(count, curPage);
+		int start = boardPager.getPageBegin();
+		int end = boardPager.getPageEnd();
+		
+		List<BoardVO> list = boardService.listAll(start, end, searchOption, keyword);
+				
+		
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("list", list);
 		map.put("count", count);
 		map.put("searchOption", searchOption);
 		map.put("keyword", keyword);
+		map.put("boardPager", boardPager);
+		
+		ModelAndView mav = new ModelAndView();
 		mav.setViewName("/board/board_list");
 		mav.addObject("map", map);
 		return mav;

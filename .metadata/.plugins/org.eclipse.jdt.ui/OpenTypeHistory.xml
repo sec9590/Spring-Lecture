@@ -2,9 +2,9 @@
 <typeInfoHistroy>
 <typeInfo handle="=spring02/src\/main\/java&lt;com.example.spring02.dao{AddressDAO.java[AddressDAO" modifiers="513" timestamp="1559628012618"/>
 <typeInfo handle="=spring02/src\/main\/java&lt;com.example.spring02.service{AddressService.java[AddressService" modifiers="513" timestamp="1559627996172"/>
-<typeInfo handle="=board/src\/main\/java&lt;com.example.board.model{BoardDAO.java[BoardDAO" modifiers="513" timestamp="1562199342539"/>
-<typeInfo handle="=board/src\/main\/java&lt;com.example.board.service{BoardService.java[BoardService" modifiers="513" timestamp="1562199304337"/>
-<typeInfo handle="=board/src\/main\/java&lt;com.example.board.model{MemberDAO.java[MemberDAO" modifiers="513" timestamp="1562219835000"/>
+<typeInfo handle="=board/src\/main\/java&lt;com.example.board.model{BoardDAO.java[BoardDAO" modifiers="513" timestamp="1562544931505"/>
+<typeInfo handle="=board/src\/main\/java&lt;com.example.board.service{BoardService.java[BoardService" modifiers="513" timestamp="1562545037052"/>
+<typeInfo handle="=board/src\/main\/java&lt;com.example.board.model{MemberDAO.java[MemberDAO" modifiers="513" timestamp="1562293752484"/>
 <typeInfo handle="=board/D:\/spring-tool\/apache-tomcat-9.0.20\/lib\/catalina-tribes.jar&lt;org.apache.catalina.tribes(Member.class[Member" modifiers="1537" timestamp="1556893650000"/>
-<typeInfo handle="=board/src\/main\/java&lt;com.example.board.service{MemberService.java[MemberService" modifiers="513" timestamp="1562286592819"/>
+<typeInfo handle="=board/src\/main\/java&lt;com.example.board.service{MemberService.java[MemberService" modifiers="513" timestamp="1562293834681"/>
 </typeInfoHistroy>

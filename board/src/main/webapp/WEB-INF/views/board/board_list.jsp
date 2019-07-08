@@ -12,6 +12,11 @@
 			location.href = "${path}/write.do";
 		});
 	});
+	
+	function list(page){
+		location.href = "${path}/list.do?curPage="+page+"&searchOption=${map.searchOption}&keyword=${map.keyword}">${row.title}</a></td>
+	}
+	
 </script>
 <style>
 body {
@@ -195,13 +200,45 @@ textarea {
 				<c:forEach var="row" items="${map.list}">
 					<tr>
 						<th>${row.bno}</th>
-						<td><a href="${path}/detail.do?bno=${row.bno}">${row.title }</a></td>
+						<td><a href="${path}/detail.do?bno=${row.bno}&curPage=${map.boardPager.curPage}&searchOption=${map.searchOption}&keyword=${map.keyword}">${row.title }</a></td>
 						<td>${row.writer }</td>
 						<td>${row.regdate }</td>
 						<td>${row.viewcnt }</td>
 					</tr>
-				</c:forEach>
+				</c:forEach>			
 			</tbody>
+			<tfoot>
+				<tr>
+					<th colspan="5">
+						<c:if test="${map.boardPager.curBlock > 1 }">
+							<a href="javascript:list('1')">[처음]</a>
+						</c:if>
+						
+						<c:if test="${map.boardPager.curBlock > 1 }">
+							<a href="javascript:list('${map.boardPager.prevPage }')">[이전]</a>
+						</c:if>
+						
+						<c:forEach var="num" begin="${map.boardPager.blockBegin }" end="${map.boardPager.blockEnd }">
+							<c:choose>
+								<c:when test="${num==map.boardPager.curPage }">
+									<span style="color:red">${num }</span>&nbsp;
+								</c:when>
+								<c:otherwise>
+									<a href="javascript:list('${num }')">${num }</a>&nbsp;
+								</c:otherwise>
+							</c:choose>
+						</c:forEach>
+						
+						<c:if test="${map.boardPager.curBlock <= map.boardPager.totBlock }">
+							<a href="javascript:list('${map.boardPager.nextPage }')">[다음]</a>
+						</c:if>
+						
+						<c:if test="${map.boardPager.curBlock <= map.boardPager.totPage }">
+							<a href="javascript:list('${map.boardPager.totPage}')">[끝]</a>
+						</c:if>
+					</th>
+				</tr>	
+					
 		</table>
 		<br>
 		<br>

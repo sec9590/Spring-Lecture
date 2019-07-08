@@ -5,9 +5,11 @@
 <!-- 다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
 <mapper namespace="board">
 <select id="listall" resultType="com.example.board.model.BoardVO">
-	select * from board
+	 <include refid="pagingHeader"></include>
+	select rownum, bno, title, content, regdate, viewcnt, writer from board
 	<include refid="search"></include>
 	 order by bno desc, regdate desc
+	 <include refid="pagingFooter"></include>
 </select>
 
 <select id="countArticle" resultType="int">
@@ -34,6 +36,15 @@
 <delete id="delete">
 	delete from board where bno=#{bno}
 </delete>
+
+<sql id = "pagingHeader">
+	select * from (select rownum as rn, a.* from (
+</sql>
+
+<sql id = "pagingFooter">
+	)a
+	) where rn between #{start} and #{end}
+</sql>
 
 <sql id="search">
 	<choose>

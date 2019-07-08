@@ -61,8 +61,8 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public List<BoardVO> listAll(String searchOption, String keyword) {
-		return bDao.listAll(searchOption, keyword);
+	public List<BoardVO> listAll(int start, int end, String searchOption, String keyword) {
+		return bDao.listAll(start, end, searchOption, keyword);
 	}
 
 	@Override
