@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aop-reference-model>
 <aop-project name="sample"/>
+<aop-project name="open_api"/>
 <aop-project name="spring02"/>
 <aop-project name="spring01"/>
+<aop-project name="open_api3"/>
 <aop-project name="product"/>
 <aop-project name="board"/>
 <aop-project name="ezentour"/>

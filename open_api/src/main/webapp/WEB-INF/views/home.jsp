@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -26,6 +27,8 @@
 	              output += '<h4>'+myItem[i].addr1+'</h4>';
 	              output += '<h4>'+myItem[i].title+'</h4>';
 	              output += '<h4>'+myItem[i].tel+'</h4>';
+	              output += '<h4>'+myItem[i].mapx+'</h4>';
+	              output += '<h4>'+myItem[i].mapy+'</h4>';
 	              document.body.innerHTML += output;
 	             
 	          }
@@ -38,6 +41,7 @@
 <form action="PublicData.do" method="get">
 <input type="submit" value="데이터보기"/>
 <button id="myButton1">축제 보기</button>
+${output }
 </form>
 </body>
 </html>

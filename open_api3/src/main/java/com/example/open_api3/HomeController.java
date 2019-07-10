@@ -41,19 +41,21 @@ public class HomeController {
 	}
 
 	@RequestMapping("PublicData.do")
-	public void home(HttpServletRequest request, HttpServletResponse response, @RequestParam String contentId, @RequestParam String contentTypeId) throws Exception {
+	public void home(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html; charset=utf-8");
 
-		String addr = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailIntro?ServiceKey=";
+		String addr = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchFestival?ServiceKey=";
 		String serviceKey = "3A8G5CF0DP0%2BcOm6xmM2GGsCidJezKufwyXK36vCO7TsJr9lOhf%2FUuM4MBZXFy8wcOSKaf8P%2FsX0VS%2BAD%2FWqCw%3D%3D";
 		String parameter = "";
 //	        serviceKey = URLEncoder.encode(serviceKey,"utf-8");
-		PrintWriter out = response.getWriter();
-		parameter = parameter + "&" + "contentId=" + contentId;
-		parameter = parameter + "&" + "contentTypeId" + contentTypeId ;
+		PrintWriter out = response.getWriter();		
+		parameter = parameter + "&" + "eventStartDate=20190701";
+		parameter = parameter + "&" + "eventEndDate=20191231";
 		parameter = parameter + "&" + "MobileOS=ETC";
-		parameter = parameter + "&" + "MobileApp=aa";
+		parameter = parameter + "&" + "MobileApp=TourAPI3.0_Guide";
+		parameter = parameter + "&" + "arrange=A";
+		parameter = parameter + "&" + "numOfRows=354";
 		parameter = parameter + "&" + "_type=json";
 
 		addr = addr + serviceKey + parameter;
