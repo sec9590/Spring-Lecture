@@ -21,7 +21,10 @@ $(document).ready(function() {
 			url:"${path}/reply/insert.do",
 			data : param,
 			success: function(){
-				alert("댓글이 등록되었습니다. ");
+				alert('댓글이 등록되었습니다. ');				
+			},			
+			complete : function(){
+				alert('댓글이 등록되었습니다. ');
 				listReply();
 			}
 		});		
@@ -47,7 +50,7 @@ function listReply(){
 	$.ajax({
 		type:"get",
 		url:"${path}/reply/list.do?bno=${vo.bno}",
-		success : function(result){
+		success : function(result){			
 			$("#listReply").html(result);
 		}
 	});

@@ -10,57 +10,39 @@ function goPopup(){
 	// 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(http://www.juso.go.kr/addrlink/addrCoordUrl.do)를 호출하게 됩니다.
 	var pop = window.open("go.do","pop","width=570,height=420, scrollbars=yes, resizable=yes"); 
 }
-
-
+/** API 서비스 제공항목 확대 (2017.02) **/
 function jusoCallBack(roadFullAddr,roadAddrPart1,addrDetail,roadAddrPart2,engAddr, jibunAddr, zipNo, admCd, rnMgtSn, bdMgtSn
-		, detBdNmList, bdNm, bdKdcd, siNm, sggNm, emdNm, liNm, rn, udrtYn, buldMnnm, buldSlno, mtYn, lnbrMnnm, lnbrSlno
-		, emdNo, entX, entY){
-// 팝업페이지에서 주소입력한 정보를 받아서, 현 페이지에 정보를 등록합니다.
-document.form.roadAddrPart1.value = roadAddrPart1;
-document.form.roadAddrPart2.value = roadAddrPart2;
-document.form.addrDetail.value = addrDetail;
-document.form.zipNo.value = zipNo;
-document.form.entX.value = entX;
-document.form.entY.value = entY;
+						, detBdNmList, bdNm, bdKdcd, siNm, sggNm, emdNm, liNm, rn, udrtYn, buldMnnm, buldSlno, mtYn, lnbrMnnm, lnbrSlno, emdNo){
+	// 팝업페이지에서 주소입력한 정보를 받아서, 현 페이지에 정보를 등록합니다.
+	document.form.roadAddrPart1.value = roadAddrPart1;	
+	document.form.zipNo.value = zipNo;
 }
 </script>
 <title>주소 입력 샘플</title>
 </head>
 <body>
 <form name="form" id="form" method="post">
-<table >
-<colgroup>
-<col style="width:20%"><col>
-</colgroup>
-<tbody>
-<tr>
-	<th>우편번호</th>
-	<td>
-	    <input type="hidden" id="confmKey" name="confmKey" value=""  >
-		<input type="text" id="zipNo" name="zipNo" readonly style="width:100px">
-		<input type="button"  value="주소검색" onclick="goPopup();">
-	</td>
-</tr>
-<tr>
-	<th><label>도로명주소</label></th>
-	<td><input type="text" id="roadAddrPart1" style="width:85%"></td>
-</tr>
-<tr>
-	<th>상세주소</th>
-	<td>
-		<input type="text" id="addrDetail" style="width:40%" value="">
-		<input type="text" id="roadAddrPart2"  style="width:40%" value="">
-	</td>
-</tr>
-<tr>
-	<th>좌표정보</th>
-	<td>
-		<input type="text" id="entX" style="width:40%" value="">
-		<input type="text" id="entY"  style="width:40%" value="">
-	</td>
-</tr>
-</tbody>
-</table>
+	<table >
+			<colgroup>
+				<col style="width:20%"><col>
+			</colgroup>
+			<tbody>
+				<tr>
+					<th>우편번호</th>
+					<td>
+					    <input type="hidden" id="confmKey" name="confmKey" value=""  >
+						<input type="text" id="zipNo" name="zipNo" readonly style="width:100px">
+						<input type="button"  value="주소검색" onclick="goPopup();">
+					</td>
+				</tr>
+				<tr>
+					<th>도로명주소</th>
+					<td><input type="text" id="roadAddrPart1" style="width:85%"></td>
+				</tr>
+			
+			</tbody>
+		</table>
 </form>
 </body>
 </html>
+				

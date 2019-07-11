@@ -135,12 +135,11 @@ textarea {
 /* Styles the submit button */
 #submit {
 	/* background:url(images/submit.png); */
-	width: 50px;
-	height: 40px;
+	width:10px;
+	height: 30px;
 	text-align: center;
 	/* text-indent:-9999px; */
 	border: none;
-	margin-top: 20px;
 	cursor: pointer;
 }
 
@@ -159,7 +158,7 @@ textarea {
 			<tbody>
 				<c:forEach var="row" items="${list}">
 					<tr>						
-						<td>${row.replyer } (${row.regdate }) ${row.replytext }</td>
+						<td>${row.replyer } (${row.regdate }) ${row.replytext } 						</td>
 					</tr>
 				</c:forEach>			
 			</tbody>
