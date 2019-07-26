@@ -1,0 +1,26 @@
+1563172556689	Rename resource 'hotel_list_no.jsp'
+1563172562616	Rename resource 'hotel_list_yes.jsp'
+1563173701472	Copy file
+1563260117122	Copy compilation unit
+1563260125212	Rename type 'ReservationDAO'
+1563261426513	Copy file
+1563261468877	Copy file
+1563264808196	Copy file
+1563264814967	Rename resource 'board_home.jsp'
+1563411906784	Delete element
+1563416838040	Rename resource 'user_home.jsp'
+1563417831197	Encapsulate field 'r_h_name'
+1563418297102	Encapsulate field 'h_name'
+1563419799050	Copy file
+1563428364526	Delete element
+1563428481894	Encapsulate field 'h_no'
+1563437058188	Rename package 'com.example.ezentour.model.admin.dto'
+1563437063224	Rename package 'com.example.ezentour.model.admin.dao'
+1563437089386	Rename type 'PriceDAI'
+1563437516777	Copy file
+1563497554240	Encapsulate field 'r_price'
+1563498616957	Copy file
+1563501130263	Copy file
+1563505316107	Copy file
+1563505328350	Rename resource 'board_write.jsp'
+1563520703130	Delete element

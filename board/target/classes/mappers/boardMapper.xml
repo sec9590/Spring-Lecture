@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
+<mapper namespace="board">
+<select id="listall" resultType="com.example.board.model.BoardVO">
+	 <include refid="pagingHeader"></include>
+	select rownum, bno, title, content, regdate, viewcnt, writer from board
+	<include refid="search"></include>
+	 order by bno desc, regdate desc
+	 <include refid="pagingFooter"></include>
+</select>
+
+<select id="countArticle" resultType="int">
+	select count(*) from board
+	<include refid="search"></include>
+</select>
+
+<select id="detail" resultType="com.example.board.model.BoardVO">
+	select * from board where bno=#{bno}
+</select>
+
+<insert id="insert">
+	insert into board(bno, title, content, writer) values ((SELECT NVL(MAX(bno)+1, 1) from board), #{title}, #{content}, #{writer})
+</insert>
+
+<update id="update">
+	update board set title=#{title}, content=#{content}, writer=#{writer}, regdate=sysdate where bno=#{bno}
+</update>
+
+<update id="increaseViewcnt">
+	update board set viewcnt=viewcnt+1 where bno=#{bno}
+</update>
+
+<delete id="delete">
+	delete from board where bno=#{bno}
+</delete>
+
+<sql id = "pagingHeader">
+	select * from (select rownum as rn, a.* from (
+</sql>
+
+<sql id = "pagingFooter">
+	)a
+	) where rn between #{start} and #{end}
+</sql>
+
+<sql id="search">
+	<choose>
+		<when test="searchOption == 'all'">
+			where writer like '%'||#{keyword}||'%'
+			or content like '%'||#{keyword}||'%'
+			or title like '%'||#{keyword}||'%'
+		</when>
+		<otherwise>
+			where ${searchOption} like '%'||#{keyword}||'%'
+		</otherwise>
+	</choose>
+</sql>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

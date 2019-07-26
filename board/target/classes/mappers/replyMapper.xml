@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
+<mapper namespace="board_reply">
+	<select id="list" resultType="com.example.board.model.ReplyVO">
+		select * from reply where bno=#{bno}
+	</select>
+
+	<insert id="insert">
+		insert into reply(rno, bno, replytext, replyer) values (r_no.NEXTVAL, #{bno}, #{replytext}, #{replyer})
+	</insert>
+
+	<update id="update">
+		update reply set replytext=#{replytext}, replyer=#{replyer}, regdate=sysdate
+		where rno=#{rno}
+	</update>
+
+	<delete id="delete">
+		delete from reply where rno=#{rno}
+	</delete>
+</mapper>
+
+

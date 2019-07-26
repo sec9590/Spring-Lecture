@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;home.jsp&apos; to &apos;include&apos;&#x0D;&#x0A;- Original project: &apos;spring02&apos;&#x0D;&#x0A;- Destination element: &apos;include&apos;&#x0D;&#x0A;- Original element: &apos;home.jsp&apos;" description="Copy file" element1="src/main/webapp/WEB-INF/views/home.jsp" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1562054143098" target="/ezentour/src/main/webapp/WEB-INF/views/include" units="0" version="1.0"/>
+</session>
